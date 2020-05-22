@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+    <div id="body-wrapper">
+        <section>
+            <h1 class="title text-center">Welcome page</h1>
+
+            {% for show in shows %}
+            <div class="shows card">
+                <a href="{{ url_for('show_detail', show_id=show.id)  }}">{{ show.title }}</a>
+            </div>
+            {% endfor %}
+
+        </section>
+        <footer>
+            Copyright, bla-bla
+        </footer>
+
+    </div>
+
+
+
+
+
+{% endblock %}

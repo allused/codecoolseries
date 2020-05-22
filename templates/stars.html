@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div id="body-wrapper">
+        <section>
+            <div id="genre-select">
+                <form method="post">
+                    <input type="text" name="genre" placeholder="Genre">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            {% if shows %}
+                <div class="shows card">
+                    {% for show in shows %}
+                        <div class="actual-show">
+                            <p>{{ show.title }}</p>
+                            <p>{{ show.year }}</p>
+                            <p class="star rating">{{ show.rating }} </p>
+                            <div id="rating">
+
+                                {% for star in range(1,10) %}
+                                    {% if show.rating | round | int > star %}
+                                        <i class="star-listen fa fa-star  "></i>
+                                    {% else %}
+                                        <i class="star-listen fa fa-star-o  "></i>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+        </section>
+    </div>
+{% endblock %}

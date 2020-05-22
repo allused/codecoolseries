@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+    <div id="body-wrapper">
+        <section>
+            {% for detail in episode %}
+                <div class="episodes ">
+                    {% if long == True %}
+                        <p>long</p>
+                    {% else  %}
+                        <p>short</p>
+                    {% endif %}
+                    <p>Title: {{ detail.title }}</p>
+                    <p>Episode number: {{ detail.episode_number }}</p>
+                </div>
+            {% endfor %}
+        </section>
+    </div>
+
+{% endblock %}

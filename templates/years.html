@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+    <div id="body-wrapper">
+        <section>
+            <div>
+                <h2 class="sum-rating">The selected year average rating is:  </h2>
+                <h2 id="avg" class="sum-rating">0</h2>
+            </div>
+            {% for year in years %}
+            <div class="year-cards">
+                <h3>{{ year.year.strftime('%Y') }}</h3>
+                <h2 id="rating">{{ year.rating | round(1, 'floor') }}</h2>
+                <p>{{ year.shows }}</p>
+            </div>
+            {% endfor %}
+        </section>
+    </div>
+
+
+{% endblock %}

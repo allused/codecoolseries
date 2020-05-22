@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div id="body-wrapper">
+        <section>
+            <form method="post">
+                <div id="season-search">
+                    <label>Season</label>
+                    <input type="text" name="season">
+                </div>
+                <div id="episode-search">
+                    <label>Episode</label>
+                    <input type="text" name="episode">
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+            {% if results %}
+                <h2 >There is {{ count }} shows, with the given details.<i class="fas fa-star"></i></h2>
+                {% for show in results %}
+                    <div class="card">
+                        <p>{{ show.title }}</p>
+                        <i class="fas fa-star"></i>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </section>
+    </div>
+
+{% endblock %}

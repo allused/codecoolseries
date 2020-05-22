@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+    <div id="body-wrapper">
+        <section>
+        <div id="sum">
+            <h2>Here are the top 10 actors, they played in {{ acting_sum }} movies/series.</h2>
+        </div>
+            {% for count in range(10) %}
+                <div class="actors card">
+                    <p>{{ actors[count].name }}</p>
+                    {% if count == 0 %}
+                        <div class="gold-medal medal"></div>
+                    {% elif count == 1 %}
+                        <div class="silver-medal medal"></div>
+                    {% elif count == 2 %}
+                        <div class="bronz-medal medal"></div>
+                    {% endif %}
+                    <p>{{ actors[count].cnt }}</p>
+                </div>
+            {% endfor %}
+
+
+        </section>
+    </div>
+
+
+{% endblock %}
